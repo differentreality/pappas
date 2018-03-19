@@ -45,6 +45,8 @@ gem 'bootstrap-datepicker-rails'
 # for switch checkboxes
 gem 'bootstrap-switch-rails'
 
+gem 'font-awesome-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
