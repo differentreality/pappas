@@ -28,10 +28,9 @@
         %td= user.dob
         %td= user.email
         %td= user.address
-        %td= user.activitybtn btn-success
+        %td= user.activity
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: "Σίγουρα επιθυμείτε διαγραφή του χρήστη #{@user.surname} #{@user.name}" }
 %br
 
 = link_to new_user_path, class: 'btn btn-success' do
