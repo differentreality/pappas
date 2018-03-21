@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    .page-header
+      %h1
+        Τιμολόγια
+    = link_to 'Καταχώρηση νέου τιμολογίου', new_invoice_path, class: 'pull-right'
+    %table.table.table-bordered.table-striped#invoices
+      %thead
+        %th Α/Α
+        %th Ημ/νία
+        %th Φωτογραφία
+        %th Αξία
+        %th ΦΠΑ
+        %th Πληρωτέο
+        %th Χρήστης
+        %th Κατηγορία
+        %th Παραγγελία
+        %th Πληρωμή
+        %th{ colspan: 3 }
+      %tbody
+        - @invoices.each.with_index(1) do |invoice, index|
+          %tr
+            %td= index
+            %td= invoice.date
+            %td= invoice.photo
+            %td= invoice.value
+            %td= invoice.vat
+            %td= invoice.payable
+            %td= invoice.try(:user).try(:name)
+            %td= invoice.try(:category).try(:name)
+            %td= invoice.order
+            %td= invoice.paid
+            %td
+              = link_to 'Προβολή', invoice
+              = link_to 'Επεξεργασία', edit_invoice_path(invoice)
+              = link_to 'Διαγραφή', invoice, method: :delete, data: { confirm: 'Are you sure?' }
