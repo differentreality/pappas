@@ -1,63 +1,68 @@
-%div.navbar{ style: 'background-color: lightgrey;text-align: center;margin-top: 10px;' }
-  %h1 ΒΔ - Παππάς Πασχάλης & Υιός
-%div.navbar.col-md-2{ style: 'background-color: lightgrey;'}
-  %ul.nav
-    %li
-      = link_to '/ ', class: '' do
-        .fa.fa-dashboard
-        %strong Αρχική
-    %li
-      = link_to '/users', class: '' do
-        .fa.fa-address-book
-        %strong Πελάτες
-    %li
-      = link_to '/users', class: '' do
-        .fa.fa-address-book-o
-        %strong Προμηθευτές
-    %li
-      = link_to '/invoices', class: '' do
-        .fa.fa-book
-        %strong Τιμολόγια
-    %li
-      = link_to '/items', class: '' do
-        .fa.fa-barcode
-        %strong Αποθήκη
-%div.navbar.col-md-10
-  %div{ style: 'background-color: lightgrey;'}
-    %row
-      %div.col-lg-3.col-md-6
-        %div.panel.panel-primary
-          %div.panel-heading
-            %div.row
-              %div.col-xs-3
-                %i.fa.fa-user.fa-5x
-              %div.col-xs-9.text-right
-                %div.huge
-                  = User.all.count
-                  %div
-                    Σύνολο Πελατών
-          = link_to users_path do
-            %div.panel-footer
-              %span.pull-left
-                View Details
-              %span.pull-right
-                %i.fa.fa-arrow-circle-right
-              %div.clearfix
-      %div.col-lg-3.col-md-6
-        %div.panel.panel-success
-          %div.panel-heading
-            %div.row
-              %div.col-xs-3
-                %i.fa.fa-money.fa-5x
-              %div.col-xs-9.text-right
-                %div.huge
-                  = Invoice.all.sum(:payable)
-                  %div
-                    Τζίρος
-          = link_to invoices_path do
-            %div.panel-footer
-              %span.pull-left
-                View Details
-              %span.pull-right
-                %i.fa.fa-arrow-circle-right
-              %div.clearfix
+%nav.navbar.navbar-default.fixed-top{ style: 'background-color: lightgrey;text-align: center;margin-top: 10px;' }
+  .col-md-4
+    %h1 ΒΔ - Παππάς Πασχάλης & Υιός
+.container-fluid
+  .row
+    .col-md-2{ style: 'background-color: lightgrey; height: 100%'}
+      -# %div.navbar.col-md-2{ style: 'background-color: lightgrey; position: fixed; height: 100%'}
+      %ul.nav.navbar.nav-pills.nav-stacked
+        .btn-group-vertical{ role: 'group'}
+          %li
+            = link_to '/ ', class: '' do
+              .fa.fa-dashboard
+              %strong Αρχική
+          %li
+            = link_to '/users', class: '' do
+              .fa.fa-address-book
+              %strong Πελάτες
+          %li
+            = link_to '/users', class: '' do
+              .fa.fa-address-book-o
+              %strong Προμηθευτές
+          %li
+            = link_to '/invoices', class: '' do
+              .fa.fa-book
+              %strong Τιμολόγια
+          %li
+            = link_to '/items', class: '' do
+              .fa.fa-barcode
+              %strong Αποθήκη
+    %div.navbar.col-md-10
+      %div{ style: 'background-color: lightgrey;'}
+        %row
+          %div.col-lg-3.col-md-6
+            %div.panel.panel-primary
+              %div.panel-heading
+                %div.row
+                  %div.col-xs-3
+                    %i.fa.fa-user.fa-5x
+                  %div.col-xs-9.text-right
+                    %div.huge
+                      = User.all.count
+                      %div
+                        Σύνολο Πελατών
+              = link_to users_path do
+                %div.panel-footer
+                  %span.pull-left
+                    View Details
+                  %span.pull-right
+                    %i.fa.fa-arrow-circle-right
+                  %div.clearfix
+          %div.col-lg-3.col-md-6
+            %div.panel.panel-success
+              %div.panel-heading
+                %div.row
+                  %div.col-xs-3
+                    %i.fa.fa-money.fa-5x
+                  %div.col-xs-9.text-right
+                    %div.huge
+                      = Invoice.all.sum(:payable)
+                      %div
+                        Τζίρος
+              = link_to invoices_path do
+                %div.panel-footer
+                  %span.pull-left
+                    View Details
+                  %span.pull-right
+                    %i.fa.fa-arrow-circle-right
+                  %div.clearfix
